@@ -1,0 +1,16 @@
+@import '~antd/dist/antd.css';
+.App {
+  text-align: center;
+}
+
+.league img{
+  height: 20px;
+}
+
+.club-logo-small{
+  height: 1rem;
+}
+
+.standings-table{
+  width: 500px;
+}
