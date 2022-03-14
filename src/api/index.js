@@ -12,7 +12,7 @@ export const getLeaguesData = async () => {
           params: {country: 'Croatia', type: 'league'},
           headers: {
             'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-            'x-rapidapi-key': '5461597603mshbb50dc4b7316cf6p16ac2djsnb480c1d3a7f0'
+            'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
           }
         })
         return response;
@@ -27,7 +27,7 @@ export const getStandingsData = async (leagueID) => {
           params: {season: '2021', league: leagueID},
           headers: {
             'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-            'x-rapidapi-key': '5461597603mshbb50dc4b7316cf6p16ac2djsnb480c1d3a7f0'
+            'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
           }
         })
         return response;
@@ -42,7 +42,7 @@ export const getFixturesData = async (teamID) => {
         params: {team: teamID, last: '5'},
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key': '5461597603mshbb50dc4b7316cf6p16ac2djsnb480c1d3a7f0'
+          'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
         }
       })
       return response;
@@ -57,7 +57,7 @@ export const getTeamInfoData = async (teamID) => {
         params: {id: teamID,},
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key': '5461597603mshbb50dc4b7316cf6p16ac2djsnb480c1d3a7f0'
+          'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
         }
       })
       return response;
@@ -72,7 +72,7 @@ export const getTeamPlayersData = async (teamID) => {
         params: {team: teamID, season: '2021'},
         headers: {
           'x-rapidapi-host': 'api-football-v1.p.rapidapi.com',
-          'x-rapidapi-key': '5461597603mshbb50dc4b7316cf6p16ac2djsnb480c1d3a7f0'
+          'x-rapidapi-key': process.env.REACT_APP_RAPID_API_KEY
         }
       })
       return response;
