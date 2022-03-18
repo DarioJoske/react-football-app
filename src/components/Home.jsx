@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { BrowserRouter as Switch, Route, Routes, useNavigate } from "react-router-dom";
 import { auth, db, logout } from "../firebase/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import {Leagues,Standings,Club} from './';
