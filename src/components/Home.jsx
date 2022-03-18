@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db, logout } from "../firebase/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
@@ -6,7 +7,7 @@ import {Leagues,Standings,Club} from './';
 import { Layout,Button} from 'antd';
 import '../App.css';
 
-const {Header,Footer,Sider,Content} = Layout;
+const {Header,Footer,Sider} = Layout;
 
 const Home = () => {
 
@@ -15,10 +16,12 @@ const Home = () => {
   const [showContent,setShowContent] = useState(true);
   
   //Auth
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loading] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
-  const fetchUserName = async () => {
+  
+  useEffect(() => {
+    const fetchUserName = async () => {
       try {
           const q = query(collection(db, "users"), where("uid", "==", user?.uid));
           const doc = await getDocs(q);
@@ -29,7 +32,7 @@ const Home = () => {
           alert("An error occured while fetching user data");
       }
   };
-  useEffect(() => {
+  
     if (loading) return;
     if (!user) return navigate("/");
     fetchUserName();
