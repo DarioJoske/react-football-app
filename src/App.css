@@ -12,6 +12,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.5em;
 }
 .register-container {
   display: flex;
@@ -27,6 +28,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.5em;
 }
 .login-container {
   display: flex;
@@ -36,12 +38,14 @@
   padding: 30px;
 }
 
+
 .reset{
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.5em;
 }
 .reset-container {
   display: flex;

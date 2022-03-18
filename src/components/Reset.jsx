@@ -14,7 +14,7 @@ const Reset = () => {
   useEffect(() => {
     if (loading) return;
     if (user) navigate("/home");
-  }, [user, loading]);
+  }, [user, loading,navigate]);
 
   return (
     <div className="reset">
