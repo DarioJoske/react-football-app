@@ -1,16 +1,186 @@
 @import '~antd/dist/antd.css';
-.App {
+
+
+
+
+
+/*Authentication*/
+
+.register{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  background-color: #dcdcdc;
+  padding: 30px;
 }
 
+.login {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  padding: 30px;
+}
+
+.reset{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reset-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #dcdcdc;
+  padding: 30px;
+}
+
+
+/*Home*/
+.home{
+  height: 100vh;
+  background-color: #f0f2f5;
+}
+
+/*Header*/
+.header-container{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  color: white;
+}
+/*Sider*/
+.sider{
+  height: 90vh;
+}
+
+/*Footer*/
+.footer{
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+/*Leagues*/
+
+.league{
+  font-size: 1em;
+}
 .league img{
   height: 20px;
 }
 
+
+/*Standings*/
+.standings{
+  display: flex;
+  
+  
+}
+.standings-table{
+  height: fit-content;
+  width: 50vw;
+  border-collapse: collapse;
+  margin: 25px 50px;
+  font-size: 1.2em;
+  min-width: 400px;
+}
+
+.standings-table thead tr{
+  text-align: left;
+  background-color: #001529;
+  color: white;
+  font-weight: bold;
+}
+.standings-table th,
+.standings-table td{
+  padding: 7px 10px;
+}
+.standings-table tbody tr{
+  border-bottom: 1px solid #fff;
+}
 .club-logo-small{
   height: 1rem;
 }
 
-.standings-table{
-  width: 500px;
+
+/*Club*/
+.club{
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.5em;
+}
+.team-info-container{
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin: 25px 25px;
+}
+.team-info-container img{
+  width: 9rem;
+  height: 9rem;
+}
+.team-info-container h1{
+  font-size: 4rem;
+}
+.fixtures-table{
+  border-collapse: collapse;
+  margin: 25px;
+  font-size: 0.9em;
+  min-width: 400px;
+  width: 40vw;
+  height: fit-content;
+}
+.fixtures-table thead tr{
+  text-align: center;
+  background-color: #001529;
+  color: white;
+  font-weight: bold;
+}
+.fixtures-table th,
+.fixtures-table td{
+  padding: 7px 10px;
+}
+.fixtures-table tbody tr{
+  border-bottom: 1px solid #fff;
+  text-align: center;
+}
+
+.team-content-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 200px;
+}
+.squad-list{
+  width: 400px;
+}
+.squad-player{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+}
+.exit-button{
+  position: fixed;
+  right: 10px;
 }

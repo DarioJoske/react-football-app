@@ -1,8 +1,11 @@
 import React,{useEffect,useState} from 'react';
 import { getFixturesData, getTeamInfoData,getTeamPlayersData } from '../api';
+import { Avatar, Image } from 'antd';
+import "../App.css";
+import { CloseOutlined } from '@ant-design/icons';
 
 
-const Club = ({teamID}) => {
+const Club = ({teamID,setShowContent}) => {
   const [fixtures,getFixtures] = useState([]);
   const [teamInfos,getTeamInfos] = useState([]);
   const [teamPlayers, getTeamPlayers] = useState([]);
@@ -10,9 +13,7 @@ const Club = ({teamID}) => {
   useEffect(() =>{
     getFixturesData(teamID)
       .then((response =>{
-        console.log(response);
         getFixtures(response);
-        
       }))
   },[teamID]);
 
@@ -37,31 +38,36 @@ const Club = ({teamID}) => {
 
 
   return (
-    <div>
-      <div>
+    <div className='club'>
+      <div className='exit-button'><button onClick={(e)=>{
+          setShowContent(true);
+          console.log(setShowContent);
+        }}
+        ><CloseOutlined/>
+        </button>
+      </div>
+      <div >
         {teamInfos?.map((teamInfo) =>(
-          <>
-            <img src={teamInfo.team.logo} alt={teamInfo.team.name}/>
-            <h2>{teamInfo.team.name}</h2>
-          </>  
+          <div className='team-info-container'>
+            
+              <img src={teamInfo.team.logo} alt={teamInfo.team.name}/>
+            
+            <h1>{teamInfo.team.name}</h1>
+            <h3>{teamInfo.team.country}</h3>
+            <h4>Founded: {teamInfo.team.founded}</h4>
+          </div>  
         ))}
       </div>
-      <div>
-        {teamPlayers?.map((teamPlayer)=> (
-          <div id={teamPlayer.player.id}>
-            {teamPlayer.player.name}
-          </div>
-        ))}
-      </div>
-      <table>
+      <div className='team-content-container'>
+      <table className='fixtures-table'>
         <thead>
           <tr>
-            <td>Home</td>
-            <td>Result</td>
-            <td>Away</td>
+            <th>Home</th>
+            <th>Result</th>
+            <th>Away</th>
           </tr>
         </thead>
-        <thead>
+        <tbody>
           {fixtures?.map((fixture) =>(
             <tr key={fixture.fixture.id}>
               <td>{fixture.teams.home.name}</td>
@@ -70,8 +76,23 @@ const Club = ({teamID}) => {
             </tr>
           ))}
 
-        </thead>
+        </tbody>
       </table>
+      <div className='squad-list'>
+        <h3>Squad list</h3>
+        {teamPlayers?.map((teamPlayer)=> (
+          <div id={teamPlayer.player.id} className='squad-player'>
+            <Avatar src={teamPlayer.player.photo} alt={teamPlayer.player.name}/>
+            {teamPlayer.player.name}
+            <div>
+            {teamPlayer.player.age}y
+            </div>
+            
+          </div>
+        ))}
+      </div>
+      </div>
+      
     </div>
   )
 }

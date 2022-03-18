@@ -1,46 +1,33 @@
 import React, {useState} from 'react';
-
-import { Layout } from 'antd';
-
-import {Leagues,Standings,Club} from './components';
-
 import './App.css';
+import { BrowserRouter as Router, Route, Routes,useParams  } from "react-router-dom";
+import Login from './components/Login';
+import Register from "./components/Register";
+import Reset from "./components/Reset";
+import Home from "./components/Home";
 
 
 
-const {Header,Footer,Sider,Content} = Layout;
+
+
 
 
 const App = () => {
-  const [leagueID,setLeagueID]=useState('210');
-  const [teamID,setTeamID]=useState('');
   
 
+
   return (
-    <>
-    <Layout>
-      <Header>Header</Header>
-      <Layout>
-        <Sider>
-          <Leagues
-            setLeagueID={setLeagueID}
-          />
-        </Sider>
-        <Content>
-          <Standings
-            leagueID={leagueID}
-            setTeamID={setTeamID}
-          />
-          <Club
-            teamID={teamID}
-          />
-        </Content>  
-      </Layout>
-      <Footer>
-      </Footer>
-    </Layout>
+    <div className='App'>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Login/>}/>
+          <Route exact path="/register" element={<Register/>}/>
+          <Route exact path="/reset" element={<Reset />} />
+          <Route exact path="/home" element={<Home />} />
+        </Routes>
+      </Router>
+    </div>
     
-    </>
   )
 }
 

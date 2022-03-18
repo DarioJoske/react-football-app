@@ -1,18 +1,22 @@
 import React,{ useState,useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 import { getStandingsData } from '../api';
+import "../App.css";
+import { Typography, Space } from 'antd';
 
 
 
 
 
-const Standings = ({setTeamID,leagueID}) => {
+
+const Standings = ({setTeamID,leagueID,setShowContent}) => {
   const[standings,setStandings] = useState([]);
+  
 
   useEffect(() => {
       getStandingsData(leagueID)
         .then((response) => {
-          
-         
+          console.log(response[0].league.standings[0]);
           setStandings(response[0].league.standings[0]);
         });
     }, [leagueID]);
@@ -21,19 +25,19 @@ const Standings = ({setTeamID,leagueID}) => {
   return (
   
     
-    <div>
+    <div className='standings'>
       <table className='standings-table'>
         <thead>
           <tr>
-          <td>Pos</td>
-          <td>Name</td>
-          <td>Played</td>
-          <td>Win</td>
-          <td>Draw</td>
-          <td>Lose</td>
-          <td>GD</td>
-          <td>Form</td>
-          <td>Points</td>
+          <th>#</th>
+          <th>Team</th>
+          <th>P</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+          <th>GD</th>
+          <th>Form</th>
+          <th>Pt</th>
           </tr> 
         </thead>
         <tbody>
@@ -42,12 +46,13 @@ const Standings = ({setTeamID,leagueID}) => {
           <tr 
             key={standing.team.id}
             onClick={(e)=>{
-              console.log(standing.team.id)
-              setTeamID(standing.team.id)
+              console.log(standing.team.id);
+              setShowContent(false);
+              setTeamID(standing.team.id);
           }}
           >
             <td>{standing.rank}</td>
-            <td><img className='club-logo-small' src={standing.team.logo} alt={standing.team.name}/> {standing.team.name}</td>
+            <td><img className='club-logo-small' src={standing.team.logo} alt={standing.team.name}/>{standing.team.name}</td>
             <td>{standing.all.played}</td>
             <td>{standing.all.win}</td>
             <td>{standing.all.draw}</td>
