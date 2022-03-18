@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes,useParams  } from "react-router-dom";
-import Login from './components/Login';
-import Register from "./components/Register";
-import Reset from "./components/Reset";
-import Home from "./components/Home";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {Login,Register,Reset,Home} from './components/index'
+
 
 
 

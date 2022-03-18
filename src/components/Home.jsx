@@ -4,9 +4,9 @@ import { BrowserRouter as Switch, Route, Routes, useNavigate } from "react-route
 import { auth, db, logout } from "../firebase/firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import {Leagues,Standings,Club} from './';
-import { Layout,Button,Row, Col } from 'antd';
-
+import { Layout,Button} from 'antd';
 import '../App.css';
+
 const {Header,Footer,Sider,Content} = Layout;
 
 const Home = () => {
@@ -53,10 +53,7 @@ const Home = () => {
       <Sider
         className="sider"
         breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={broken => {
-          console.log(broken);
-        }}
+        collapsedWidth="0"  
       >
         <Leagues
           setLeagueID={setLeagueID}

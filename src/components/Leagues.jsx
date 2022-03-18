@@ -1,23 +1,16 @@
 import React,{ useEffect, useState } from 'react';
 import { getLeaguesData } from '../api';
-import {Menu, Button} from 'antd';
+import {Menu} from 'antd';
 import "../App.css";
 
-
-
-
-
 const Leagues = ({setLeagueID,setShowContent}) => {
-    
-    const[leagues,setLeagues] = useState([]);
+  const[leagues,setLeagues] = useState([]);
     
 
-    useEffect(() => {
-        getLeaguesData()
-          .then((response) => {
-            
-            console.log(response);
-            setLeagues(response);
+  useEffect(() => {
+    getLeaguesData()
+      .then((response) => {        
+        setLeagues(response);
           });
       }, []);
 
@@ -32,18 +25,15 @@ const Leagues = ({setLeagueID,setShowContent}) => {
             <Menu.Item 
             key={league.league.id} 
             onClick={(e)=>{
-                console.log(league.league.id)
-                setLeagueID(league.league.id)
+                setLeagueID(league.league.id);
                 setShowContent(true);
             }}
-            className="league"    
-                
+            className="league"      
             >
-                {league.league.name} <img src={league.league.logo} alt={league.league.name} />
+              {league.league.name} <img src={league.league.logo} alt={league.league.name} />
             </Menu.Item>
           ))}
-        </Menu>
-        
+        </Menu> 
     </div>
   )
 }

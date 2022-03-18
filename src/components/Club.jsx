@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import { getFixturesData, getTeamInfoData,getTeamPlayersData } from '../api';
-import { Avatar, Image } from 'antd';
+import { Avatar, Button } from 'antd';
 import "../App.css";
 import { CloseOutlined } from '@ant-design/icons';
 
@@ -33,25 +33,19 @@ const Club = ({teamID,setShowContent}) => {
       })
   },[teamID]);
 
- 
-
-
-
   return (
     <div className='club'>
-      <div className='exit-button'><button onClick={(e)=>{
+      <div className='exit-button'><Button onClick={(e)=>{
           setShowContent(true);
           console.log(setShowContent);
         }}
         ><CloseOutlined/>
-        </button>
+        </Button>
       </div>
       <div >
         {teamInfos?.map((teamInfo) =>(
-          <div className='team-info-container'>
-            
-              <img src={teamInfo.team.logo} alt={teamInfo.team.name}/>
-            
+          <div className='team-info-container'>            
+            <img src={teamInfo.team.logo} alt={teamInfo.team.name}/>            
             <h1>{teamInfo.team.name}</h1>
             <h3>{teamInfo.team.country}</h3>
             <h4>Founded: {teamInfo.team.founded}</h4>
@@ -86,13 +80,11 @@ const Club = ({teamID,setShowContent}) => {
             {teamPlayer.player.name}
             <div>
             {teamPlayer.player.age}y
-            </div>
-            
+            </div>  
           </div>
         ))}
       </div>
       </div>
-      
     </div>
   )
 }

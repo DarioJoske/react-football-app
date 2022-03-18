@@ -1,13 +1,6 @@
 import React,{ useState,useEffect } from 'react'
-import { BrowserRouter as Router, Route, Link  } from "react-router-dom";
 import { getStandingsData } from '../api';
 import "../App.css";
-import { Typography, Space } from 'antd';
-
-
-
-
-
 
 const Standings = ({setTeamID,leagueID,setShowContent}) => {
   const[standings,setStandings] = useState([]);
@@ -16,15 +9,11 @@ const Standings = ({setTeamID,leagueID,setShowContent}) => {
   useEffect(() => {
       getStandingsData(leagueID)
         .then((response) => {
-          console.log(response[0].league.standings[0]);
           setStandings(response[0].league.standings[0]);
         });
     }, [leagueID]);
-
-    
-  return (
   
-    
+  return (
     <div className='standings'>
       <table className='standings-table'>
         <thead>
@@ -42,11 +31,9 @@ const Standings = ({setTeamID,leagueID,setShowContent}) => {
         </thead>
         <tbody>
           {standings?.map((standing) =>(
-          
           <tr 
             key={standing.team.id}
             onClick={(e)=>{
-              console.log(standing.team.id);
               setShowContent(false);
               setTeamID(standing.team.id);
           }}
@@ -59,19 +46,12 @@ const Standings = ({setTeamID,leagueID,setShowContent}) => {
             <td>{standing.all.lose}</td>
             <td>{standing.goalsDiff}</td>
             <td>{standing.form}</td>
-            <td>{standing.points}</td>
-            
+            <td>{standing.points}</td> 
           </tr>
-          
-          
-          
-           
           ))}
         </tbody>
       </table>
-     
     </div>
-      
   )
 }
 

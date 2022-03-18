@@ -5,9 +5,10 @@ import { Link } from "react-router-dom";
 import { auth, sendPasswordResetEmail } from "../firebase/firebase";
 import { Button,Input } from 'antd'
 import "../App.css"
+
 const Reset = () => {
     const [email, setEmail] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading ] = useAuthState(auth);
     const navigate = useNavigate();
 
   useEffect(() => {

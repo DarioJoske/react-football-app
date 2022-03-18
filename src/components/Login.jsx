@@ -37,7 +37,6 @@ const Login = () => {
           placeholder="Password"
         />
         <Button
-        
             onClick={() => signInWithEmailAndPassword(email, password)}
         >
             Login
