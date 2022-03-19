@@ -130,7 +130,7 @@
 .club{
   margin-left: 50px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   font-size: 1.5em;
 }
@@ -169,6 +169,10 @@
   border-bottom: 1px solid #fff;
   text-align: center;
 }
+.fixtures-content-container{
+  display: flex;
+  flex-direction: column;
+}
 
 .team-content-container{
   display: flex;
@@ -178,6 +182,7 @@
 }
 .squad-list{
   width: 400px;
+  
 }
 .squad-player{
   display: flex;

@@ -35,6 +35,7 @@ const Club = ({teamID,setShowContent}) => {
 
   return (
     <div className='club'>
+      <div className='fixtures-content-container'>
       <div className='exit-button'><Button onClick={(e)=>{
           setShowContent(true);
           console.log(setShowContent);
@@ -52,7 +53,6 @@ const Club = ({teamID,setShowContent}) => {
           </div>  
         ))}
       </div>
-      <div className='team-content-container'>
       <table className='fixtures-table'>
         <thead>
           <tr>
@@ -72,6 +72,10 @@ const Club = ({teamID,setShowContent}) => {
 
         </tbody>
       </table>
+      </div>
+      
+      <div className='team-content-container'>
+      
       <div className='squad-list'>
         <h3>Squad list</h3>
         {teamPlayers?.map((teamPlayer)=> (
