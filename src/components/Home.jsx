@@ -43,8 +43,9 @@ const Home = () => {
     <Layout>
       <Header>
         <div className="header-container">
-          <div>User: {name} {user?.email}
+          <div className="user-email">User: {name} {user?.email}
         </div>
+        <div className="email">{user?.email}</div>
         <Button type="primary" onClick={logout}>
           Logout
         </Button>

@@ -25,7 +25,7 @@ const Standings = ({setTeamID,leagueID,setShowContent}) => {
           <th>D</th>
           <th>L</th>
           <th>GD</th>
-          <th>Form</th>
+          <th className='team-form'>Form</th>
           <th>Pt</th>
           </tr> 
         </thead>
@@ -45,7 +45,7 @@ const Standings = ({setTeamID,leagueID,setShowContent}) => {
             <td>{standing.all.draw}</td>
             <td>{standing.all.lose}</td>
             <td>{standing.goalsDiff}</td>
-            <td>{standing.form}</td>
+            <td className='team-form'>{standing.form}</td>
             <td>{standing.points}</td> 
           </tr>
           ))}

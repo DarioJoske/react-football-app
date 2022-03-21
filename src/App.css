@@ -70,6 +70,9 @@
   justify-content: flex-end;
   color: white;
 }
+.email{
+  display: none;
+}
 /*Sider*/
 .sider{
   height: 90vh;
@@ -151,7 +154,6 @@
   border-collapse: collapse;
   margin: 25px;
   font-size: 0.9em;
-  min-width: 400px;
   width: 40vw;
   height: fit-content;
 }
@@ -192,4 +194,77 @@
 .exit-button{
   position: fixed;
   right: 10px;
+}
+
+/*Mobile*/
+@media only screen and (max-width: 768px) {
+  /*Standings*/
+  
+  .standings{
+    display: flex;
+  }
+  .standings-table{
+    height: fit-content;
+    width: 400px;
+    border-collapse: collapse;
+    margin: 15px 5px 5px 5px;
+    font-size: 0.9em;  
+  }
+  .standings-table tbody td{
+    white-space: nowrap;
+  }
+  .team-form{
+    display: none;
+  }
+
+
+  /*Club*/
+  .club{
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    font-size: 0.9em;
+  }
+  .team-info-container img{
+    width: 6rem;
+    height: 6rem;
+  }
+  .team-info-container h1{
+    font-size: 2rem;
+  }
+  .fixtures-table{
+    border-collapse: collapse;
+    margin: 5px;
+    font-size: 0.9em;
+    width: 90vw;
+    height: fit-content;
+  }
+  
+  .fixtures-table th,
+  .fixtures-table td{
+    padding: 5px 0;
+  }
+  .squad-list{
+    width: 90vw;
+    
+  }
+  .squad-player{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0px;
+  }
+  .exit-button{
+    position: fixed;
+    right: 10px;
+  }
+  .header-container{
+    white-space: nowrap;
+  }
+  .user-email{
+    display: none;
+  }
+  .email{
+    display: contents;
+  }
 }
